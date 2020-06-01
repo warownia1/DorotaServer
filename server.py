@@ -67,7 +67,6 @@ class Game:
     def play_turn(self):
         cur_plr = self.players.pop()
         for player in self.players:
-            send_msg(player.client, f'CurrentPlayer;{cur_plr.id}')
             ans = self.pop_answer()
             send_msg(player.client, f'GotAnswer;{ans}')
         self.players.appendleft(cur_plr)
@@ -139,6 +138,7 @@ def client_connected(client: socket.socket, address):
     while True:
         try:
             text = recv_msg(client)
+            if not text: raise ConnectionError("No data from client.")
         except ConnectionError:
             break
         print(f'{address} sent "{text}"')
