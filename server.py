@@ -163,6 +163,7 @@ def do_SignIn(client, msg: Message):
     print(f'player {plr.id} signed in')
     if plr.client: plr.client.close()
     plr.client = client
+    plr.name = msg.content
     global game
     if game is None: game = Game()
     game.add_player(plr)
