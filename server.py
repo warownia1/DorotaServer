@@ -169,16 +169,15 @@ def do_SignIn(client, msg: Message):
     game.add_player(plr)
     send_msg(client, f'SignedIn;{plr.id}')
 
+    msg = str.join(';', (f'{plr.id}:{plr.name}' for plr in game.players))
+    for plr in game.players:
+        send_msg(plr.client, 'PlayersList;' + msg)
+
 
 def do_GetPlayerName(client, msg: Message):
     plr = players.get(msg.content)
     if plr is None: return
     send_msg(client, f'PlayerName;{plr.id};{plr.name}')
-
-
-def do_GetPlayers(client, msg: Message):
-    plrs = ','.join(plr.id for plr in game.players)
-    send_msg(client, f'Players;{plrs}')
 
 
 def do_SetName(client, msg: Message):
