@@ -1,0 +1,24 @@
+{
+  "name": "dorota-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "engine.io": "^4.0.6",
+    "socket.io": "^3.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/warownia1/DorotaServer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/warownia1/DorotaServer/issues"
+  },
+  "homepage": "https://github.com/warownia1/DorotaServer#readme"
+}
